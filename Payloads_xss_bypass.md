@@ -1,7 +1,7 @@
-## Recopilación de todos los Payloads usados/creados por mi.
+# Recopilación de todos los Payloads usados / creados por mi.
 
 
-# Para detectar errores: sql inyection, xss inyection y HTML inyection
+### Para detectar errores: sql inyection, xss inyection y HTML inyection
 
 `'"><script>alert`1`</script><h1>d</h1>`
 
