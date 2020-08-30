@@ -137,6 +137,21 @@ al\u0065rt(1)
 top[‘al\145rt’](1)
 top[‘al\x65rt’](1)
 top[8680439..toString(30)](1)
+
+confirm()
+confirm``
+(confirm``)
+{confirm``}
+[confirm``]
+(((confirm)))``
+co\u006efirm()
+new class extends confirm``{}
+[8].find(confirm)
+[8].map(confirm)
+[8].some(confirm)
+[8].every(confirm)
+[8].filter(confirm)
+[8].findIndex(confirm)
 ```
 
 ### ----------------------------------
