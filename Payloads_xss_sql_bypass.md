@@ -186,6 +186,8 @@ alert.call(null, document.domain);
 alert.apply(null, [document.domain]);
 alert.bind()(document.domain);
 alert(this['document']['domain']);
+(new Map()).set(1, document.domain).forEach(alert);
+
 
 
 
