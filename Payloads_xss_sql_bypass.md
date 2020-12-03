@@ -195,7 +195,14 @@ alert.bind()(document.domain);
 alert(this['document']['domain']);
 (new Map()).set(1, document.domain).forEach(alert);
 
-
+[class extends[alert````]{}]
+```${``[class extends[alert``]{}]}```
+[class extends[alert````]{}]
+throw new class extends Function{}('alert(1)')``
+x=new class extends Function{}('alert(1)'); x=new x;
+new class extends alert(1){}
+new class extends class extends class extends class extends alert(1){}{}{}{}
+    
 
 
 
