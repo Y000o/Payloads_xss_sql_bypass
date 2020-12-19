@@ -3,7 +3,7 @@
 
 ### Para detectar errores: sql inyection, xss inyection y HTML inyection
 
-`'"><script>alert`1`</script><h1>d</h1>`
+`'"><script>alert(1)</script><h1>d</h1>`
 
 ### h1
 
