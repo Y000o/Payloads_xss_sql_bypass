@@ -29,7 +29,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
    * [xss en android](#xss-en-android)
    * [xss en android para iniciar llamada y enviar mensajes de texto](#xss-en-android-para-iniciar-llamada-y-enviar-mensajes-de-texto)
    * [xss javascript navigator](#xss-javascript-navigator)
-   * [Muchos mas:](#Muchosmas:)
+   * [Muchos mas](#Muchosmas)
 * [Css injection](#Css-injection)
 * [sql injection](#sql-injection)
    * [Payloads para sql inyection login bypass](#Payloads-para-sql-inyection-login-bypass)
@@ -449,7 +449,7 @@ window.open ("sms:[00000000000]?body=" + "mensaje","_system");
 
 
 
-### Muchos mas:
+### Muchos mas
 
 ```
 <script%20~~~>\u0061\u006C\u0065\u0072\u0074``</script%20~~~>
