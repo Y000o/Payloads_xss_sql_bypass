@@ -273,7 +273,9 @@ x=new class extends Function{}('alert(1)'); x=new x;
 new class extends alert(1){}
 new class extends class extends class extends class extends alert(1){}{}{}{}
     
-
+alert?.()
+confirm?.()
+prompt?.()
 
 
 
