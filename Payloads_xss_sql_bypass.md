@@ -281,6 +281,7 @@ new class extends class extends class extends class extends alert(1){}{}{}{}
 alert?.()
 confirm?.()
 prompt?.()
+`(alert())`
 
 
 
