@@ -68,8 +68,8 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
     * [Sql inyection payload + comment + hex/unhex](#Sql-inyection-payload-+-comment-+-hex/unhex)
     * [Sql inyection payload + url encode](#Sql-inyection-payload-+-url-encode)
     * [MSSQL](#MSSQL)
-    * [Xpath injection](#Xpath injection)
-    * [Error based](#Error based)
+    * [Xpath injection](#Xpath-injection)
+    * [Error based](#Error-based)
         
         
    
